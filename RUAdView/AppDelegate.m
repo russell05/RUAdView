@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "RUAdWindow.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [UIWindow new];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[ViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    
+    RUAdView *adView = [[RUAdView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    adView.count = 5;
+    adView.startUpType = RUAdViewStartUpTypeCold;
+    [self.window addSubview:adView];
+    
     return YES;
 }
 
@@ -35,6 +46,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    self.adWindow = [[RUAdWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.adWindow show];
 }
 
 

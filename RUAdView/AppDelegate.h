@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class RUAdWindow;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) RUAdWindow *adWindow;
 
 @end
 
